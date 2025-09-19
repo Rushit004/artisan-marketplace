@@ -1,40 +1,60 @@
-const artisans = [
-    {
-        name: "Aarohi Textiles",
-        craft: "Handloom Sarees",
-        story: "Weaving tradition passed down for generations.",
-        img: "https://i.imgur.com/xyz123.jpg",
-        price: "₹1800"
-    },
-    {
-        name: "Ravi's Pottery",
-        craft: "Terracotta Pots",
-        story: "Inspired by village life and nature.",
-        img: "https://i.imgur.com/abc456.jpg",
-        price: "₹320"
-    }
-];
+document.addEventListener('DOMContentLoaded', () => {
+    // Array of sample product data
+    // In a real application, you would fetch this data from an API
+    const products = [
+        {
+            name: "Hand-painted Ceramic Vase",
+            description: "A beautiful, hand-painted vase with intricate patterns inspired by traditional art.",
+            price: "₹1,200",
+            image: "https://images.unsplash.com/photo-1599424608359-54378f85f3de",
+            artisan: "Meera"
+        },
+        {
+            name: "Woven Bamboo Basket",
+            description: "A durable and stylish basket, meticulously hand-woven from sustainably sourced bamboo.",
+            price: "₹850",
+            image: "https://images.unsplash.com/photo-1515286280436-e0f393850125",
+            artisan: "Prakash"
+        },
+        {
+            name: "Block Printed Scarf",
+            description: "Soft cotton scarf featuring a classic Sanganeri block print design in natural dyes.",
+            price: "₹600",
+            image: "https://images.unsplash.com/photo-1521406691122-f04b281f6c46",
+            artisan: "Radha"
+        },
+        {
+            name: "Carved Wooden Elephant",
+            description: "A meticulously hand-carved miniature elephant, a symbol of good luck and strength.",
+            price: "₹1,500",
+            image: "https://images.unsplash.com/photo-1621644781403-4c9f16e39818",
+            artisan: "Rajesh"
+        }
+    ];
 
-function generateStory(name, craft, oldStory) {
-    // Simple AI-like suggestion
-    return oldStory + " This unique product reflects their dedication and brings heritage to your modern home.";
-}
+    const productGrid = document.getElementById('product-grid');
 
-function renderArtisans() {
-    const list = document.getElementById('product-list');
-    list.innerHTML = '';
-    artisans.forEach(a => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-            <img src="${a.img}" alt="${a.craft}">
-            <h3>${a.name}</h3>
-            <p><strong>Craft:</strong> ${a.craft}</p>
-            <p><strong>Story:</strong> ${generateStory(a.name, a.craft, a.story)}</p>
-            <p><strong>Price:</strong> ${a.price}</p>
-            <button>Contact Artisan</button>
+    // Function to create a product card element
+    const createProductCard = (product) => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        const html = `
+            <img src="${product.image}" alt="${product.name}" class="product-image">
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <div class="product-price">${product.price}</div>
+            </div>
         `;
-        list.appendChild(card);
+
+        productCard.innerHTML = html;
+        return productCard;
+    };
+
+    // Populate the product grid with the data
+    products.forEach(product => {
+        const card = createProductCard(product);
+        productGrid.appendChild(card);
     });
-}
-renderArtisans();
+});

@@ -1,181 +1,422 @@
-/* Reset */
+:root {
+    --primary-color: #6a329f; /* A rich purple for a unique brand identity */
+    --secondary-color: #f7b731; /* A golden yellow for accents */
+    --text-color-dark: #333;
+    --text-color-light: #f4f4f4;
+    --background-light: #fff;
+    --background-dark: #f0f0f0;
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background: #f9f9f9;
-  color: #333;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color-dark);
+    line-height: 1.6;
+    background-color: var(--background-light);
 }
 
-/* Navbar */
+.header {
+    background-color: var(--background-light);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #d35400;
-  cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
-.search-bar input {
-  padding: 8px 12px;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
 }
 
-.menu button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  margin-left: 15px;
-  color: #333;
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color-dark);
+    font-weight: 400;
+    transition: color 0.3s ease;
 }
 
-.menu button:hover {
-  color: #d35400;
+.nav-links a:hover {
+    color: var(--primary-color);
 }
 
-/* Banner */
-.banner {
-  background: url("https://source.unsplash.com/1600x400/?handmade,art") center/cover no-repeat;
-  height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 28px;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+.hero-section {
+    background-image: url('https://images.unsplash.com/photo-1517446452589-3221d6070a20');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color-light);
+    position: relative;
 }
 
-/* Products Grid */
-.products {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
-.card:hover {
-  transform: scale(1.03);
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
-.card-content {
-  padding: 15px;
+.cta-button {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.card-content h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
+.cta-button:hover {
+    background-color: #e0a328;
 }
 
-.card-content p {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #555;
+.marketplace-section {
+    padding: 4rem 5%;
+    text-align: center;
 }
 
-.price {
-  font-weight: bold;
-  color: #d35400;
-  margin-bottom: 10px;
+.marketplace-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--primary-color);
 }
 
-.cart-btn {
-  background: #d35400;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-.cart-btn:hover {
-  background: #b84300;
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: left;
 }
 
-/* Footer */
-footer {
-  background: #333;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  margin-top: 40px;
+.product-card:hover {
+    transform: translateY(-10px);
 }
 
-/* Modals */
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-dark);
+}
+
+.product-info p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.artisan-story-section {
+    background-color: var(--background-dark);
+    padding: 4rem 5%;
+}
+
+.story-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .story-content {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.story-image-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+.story-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.story-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.story-text h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.learn-more-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-button:hover {
+    background-color: #552786;
+}
+
+.footer {
+    background-color: var(--text-color-dark);
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 2rem 5%;
+}
+.chat-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chat-container.hidden {
+    display: none;
+}
+
+.chat-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+.ai-message {
+    background-color: #e2e2e2;
+    align-self: flex-start;
+}
+
+.user-message {
+    background-color: var(--secondary-color);
+    color: white;
+    align-self: flex-end;
+}
+
+.chat-form {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+}
+
+.chat-form input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chat-form button {
+    margin-left: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.filter-buttons {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.filter-btn {
+    background-color: #e0e0e0;
+    color: var(--text-color-dark);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.product-card.hidden {
+    display: none;
+}
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal.hidden {
+    display: none;
 }
 
 .modal-content {
-  background: white;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-.modal-content input {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
-.modal-content button {
-  background: #d35400;
-  border: none;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
+.form-container input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.close {
-  float: right;
-  font-size: 22px;
-  cursor: pointer;
+.form-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

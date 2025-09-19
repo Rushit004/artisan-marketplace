@@ -4,37 +4,176 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artisan Marketplace</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #d35400;
+      cursor: pointer;
+    }
+
+    .navbar .search-bar input {
+      padding: 8px 12px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar .menu button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .navbar .menu button:hover {
+      color: #d35400;
+    }
+
+    /* Banner */
+    .banner {
+      background: url("https://source.unsplash.com/1600x400/?handmade,art") center/cover no-repeat;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    }
+
+    /* Products Grid */
+    .products {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #d35400;
+      margin-bottom: 10px;
+    }
+
+    .card-content button {
+      background: #d35400;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .card-content button:hover {
+      background: #b84300;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <div class="navbar">
     <div class="logo">Artisan Marketplace</div>
     <div class="search-bar">
       <input type="text" placeholder="Search for handmade items...">
     </div>
     <div class="menu">
-      <button id="loginBtn">Login</button>
-      <button id="registerBtn">Register</button>
-      <button id="cartBtn">Cart 🛒</button>
+      <button onclick="alert('Login clicked!')">Login</button>
+      <button onclick="alert('Register clicked!')">Register</button>
+      <button onclick="alert('Cart clicked!')">Cart 🛒</button>
     </div>
-  </nav>
+  </div>
 
   <!-- Banner -->
-  <section class="banner">
+  <div class="banner">
     Discover Unique Handmade Crafts
-  </section>
+  </div>
 
-  <!-- Products Grid -->
-  <section class="products">
+  <!-- Products -->
+  <div class="products">
     <div class="card">
       <img src="https://source.unsplash.com/400x300/?jewelry,handmade" alt="Handmade Necklace">
       <div class="card-content">
         <h3>Handmade Necklace</h3>
         <p>Beautiful artisan necklace crafted with care.</p>
         <div class="price">₹1,200</div>
-        <button class="cart-btn">Add to Cart</button>
+        <button onclick="alert('Added to cart!')">Add to Cart</button>
       </div>
     </div>
 
@@ -44,7 +183,7 @@
         <h3>Clay Pot</h3>
         <p>Traditional handmade clay pot for home decor.</p>
         <div class="price">₹800</div>
-        <button class="cart-btn">Add to Cart</button>
+        <button onclick="alert('Added to cart!')">Add to Cart</button>
       </div>
     </div>
 
@@ -54,7 +193,7 @@
         <h3>Wall Painting</h3>
         <p>Colorful wall art to brighten up your room.</p>
         <div class="price">₹2,500</div>
-        <button class="cart-btn">Add to Cart</button>
+        <button onclick="alert('Added to cart!')">Add to Cart</button>
       </div>
     </div>
 
@@ -64,39 +203,15 @@
         <h3>Handmade Bag</h3>
         <p>Eco-friendly handmade bag with unique design.</p>
         <div class="price">₹1,000</div>
-        <button class="cart-btn">Add to Cart</button>
+        <button onclick="alert('Added to cart!')">Add to Cart</button>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Footer -->
   <footer>
     © 2025 Artisan Marketplace | Inspired by Etsy
   </footer>
 
-  <!-- Login/Register Popups -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Login</h2>
-      <input type="text" placeholder="User ID">
-      <input type="password" placeholder="Password">
-      <button>Submit</button>
-    </div>
-  </div>
-
-  <div id="registerModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Register</h2>
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <input type="text" placeholder="User ID">
-      <input type="password" placeholder="Password">
-      <button>Submit</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

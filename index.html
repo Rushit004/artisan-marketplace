@@ -2,32 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Local Artisan Marketplace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Marketplace</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Local Artisan Marketplace</h1>
-        <nav>
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Artisan Hub</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Stories</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
         </nav>
     </header>
+
     <main>
-        <section id="products">
-            <h2>Featured Artisans</h2>
-            <div class="product-list" id="product-list"></div>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Crafts with a Story</h1>
+                <p>Discover unique, handmade treasures from local artisans. Every purchase supports a dream.</p>
+                <button class="cta-button">Explore Now</button>
+            </div>
         </section>
-        <section id="about">
-            <h2>About This Project</h2>
-            <p>
-                This marketplace empowers Indian artisans by connecting them with buyers, highlighting traditional crafts and personal stories.
-            </p>
+
+        <section class="marketplace-section">
+            <h2>Featured Crafts</h2>
+            <div class="product-grid" id="product-grid">
+                </div>
+        </section>
+
+        <section class="artisan-story-section">
+            <div class="story-content">
+                <div class="story-image-container">
+                    <img src="https://images.unsplash.com/photo-1599424608359-54378f85f3de" alt="Artisan at work" class="story-image">
+                </div>
+                <div class="story-text">
+                    <h3>Meet Our Artisans</h3>
+                    <p>
+                        Our platform helps artisans like **Radha** from Jaipur, who has been practicing traditional block printing for over 30 years, share her craft with the world. Through her designs, she tells stories of her heritage and passion.
+                    </p>
+                    <button class="learn-more-button">Learn More</button>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Artisan Marketplace</p>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Artisan Hub. All Rights Reserved.</p>
+        </div>
     </footer>
+
     <script src="app.js"></script>
 </body>
 </html>

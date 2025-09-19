@@ -1,63 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artisan Marketplace</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Artisan Market — AI Powered Marketplace Assistant</title>
+  <meta name="description" content="Support local artisans: discover craft, read their stories, and shop handcrafted goods." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Artisan Market</h1>
+      <nav>
+        <button id="btn-explore">Explore</button>
+        <button id="btn-stories">Stories</button>
+        <button id="btn-admin">Admin</button>
+      </nav>
+    </div>
+  </header>
 
-    <header class="header">
-        <nav class="navbar">
-            <div class="logo">Artisan Hub</div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Marketplace</a></li>
-                <li><a href="#">Stories</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1>Crafts with a Story</h1>
-                <p>Discover unique, handmade treasures from local artisans. Every purchase supports a dream.</p>
-                <button class="cta-button">Explore Now</button>
-            </div>
-        </section>
-
-        <section class="marketplace-section">
-            <h2>Featured Crafts</h2>
-            <div class="product-grid" id="product-grid">
-                </div>
-        </section>
-
-        <section class="artisan-story-section">
-            <div class="story-content">
-                <div class="story-image-container">
-                    <img src="https://images.unsplash.com/photo-1599424608359-54378f85f3de" alt="Artisan at work" class="story-image">
-                </div>
-                <div class="story-text">
-                    <h3>Meet Our Artisans</h3>
-                    <p>
-                        Our platform helps artisans like **Radha** from Jaipur, who has been practicing traditional block printing for over 30 years, share her craft with the world. Through her designs, she tells stories of her heritage and passion.
-                    </p>
-                    <button class="learn-more-button">Learn More</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Artisan Hub. All Rights Reserved.</p>
+  <main class="container">
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-text">
+        <h2>AI-Powered Marketplace Assistant for Local Artisans</h2>
+        <p>Helping artisans tell their stories, market their craft, and reach new digital audiences.</p>
+        <div class="hero-actions">
+          <button id="cta-explore">Explore Artisans</button>
+          <button id="cta-learn">How it Works</button>
         </div>
-    </footer>
+      </div>
+      <div class="hero-illustration">
+        <img src="placeholder-hero.jpg" alt="Handcrafts on a table" />
+      </div>
+    </section>
 
-    <script src="app.js"></script>
+    <!-- Search & Filters -->
+    <section class="controls">
+      <input id="search" type="search" placeholder="Search artisans, crafts or locations..." />
+      <select id="category">
+        <option value="all">All categories</option>
+        <option value="textiles">Textiles</option>
+        <option value="wood">Woodwork</option>
+        <option value="pottery">Pottery</option>
+      </select>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="grid"></section>
+
+    <!-- Stories -->
+    <section id="stories" class="stories hidden">
+      <h3>Artisan Stories</h3>
+      <div id="stories-list" class="stories-list"></div>
+    </section>
+
+    <!-- Detail Modal -->
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Admin (mock) -->
+    <section id="admin" class="admin hidden">
+      <h3>Admin — Add a mock artisan</h3>
+      <form id="adminForm">
+        <label>
+          Name <input name="name" required />
+        </label>
+        <label>
+          Category <input name="category" required />
+        </label>
+        <label>
+          Location <input name="location" />
+        </label>
+        <label>
+          Story <textarea name="story" rows="4"></textarea>
+        </label>
+        <label>
+          Image URL <input name="image" placeholder="optional image URL" />
+        </label>
+        <button type="submit">Add Artisan (local)</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Artisan Market • Built for the hackathon • Demo only</small>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

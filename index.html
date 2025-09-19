@@ -1,98 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Artisan Market — AI Powered Marketplace Assistant</title>
-  <meta name="description" content="Support local artisans: discover craft, read their stories, and shop handcrafted goods." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artisan Marketplace</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Artisan Market</h1>
-      <nav>
-        <button id="btn-explore">Explore</button>
-        <button id="btn-stories">Stories</button>
-        <button id="btn-admin">Admin</button>
-      </nav>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Artisan Marketplace</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for handmade items...">
     </div>
-  </header>
+    <div class="menu">
+      <button id="loginBtn">Login</button>
+      <button id="registerBtn">Register</button>
+      <button id="cartBtn">Cart 🛒</button>
+    </div>
+  </nav>
 
-  <main class="container">
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <div class="hero-text">
-        <h2>AI-Powered Marketplace Assistant for Local Artisans</h2>
-        <p>Helping artisans tell their stories, market their craft, and reach new digital audiences.</p>
-        <div class="hero-actions">
-          <button id="cta-explore">Explore Artisans</button>
-          <button id="cta-learn">How it Works</button>
-        </div>
-      </div>
-      <div class="hero-illustration">
-        <img src="placeholder-hero.jpg" alt="Handcrafts on a table" />
-      </div>
-    </section>
+  <!-- Banner -->
+  <section class="banner">
+    Discover Unique Handmade Crafts
+  </section>
 
-    <!-- Search & Filters -->
-    <section class="controls">
-      <input id="search" type="search" placeholder="Search artisans, crafts or locations..." />
-      <select id="category">
-        <option value="all">All categories</option>
-        <option value="textiles">Textiles</option>
-        <option value="wood">Woodwork</option>
-        <option value="pottery">Pottery</option>
-      </select>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery" class="grid"></section>
-
-    <!-- Stories -->
-    <section id="stories" class="stories hidden">
-      <h3>Artisan Stories</h3>
-      <div id="stories-list" class="stories-list"></div>
-    </section>
-
-    <!-- Detail Modal -->
-    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
-      <div class="modal-content">
-        <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
-        <div id="modal-body"></div>
+  <!-- Products Grid -->
+  <section class="products">
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?jewelry,handmade" alt="Handmade Necklace">
+      <div class="card-content">
+        <h3>Handmade Necklace</h3>
+        <p>Beautiful artisan necklace crafted with care.</p>
+        <div class="price">₹1,200</div>
+        <button class="cart-btn">Add to Cart</button>
       </div>
     </div>
 
-    <!-- Admin (mock) -->
-    <section id="admin" class="admin hidden">
-      <h3>Admin — Add a mock artisan</h3>
-      <form id="adminForm">
-        <label>
-          Name <input name="name" required />
-        </label>
-        <label>
-          Category <input name="category" required />
-        </label>
-        <label>
-          Location <input name="location" />
-        </label>
-        <label>
-          Story <textarea name="story" rows="4"></textarea>
-        </label>
-        <label>
-          Image URL <input name="image" placeholder="optional image URL" />
-        </label>
-        <button type="submit">Add Artisan (local)</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>© Artisan Market • Built for the hackathon • Demo only</small>
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?pottery,art" alt="Clay Pot">
+      <div class="card-content">
+        <h3>Clay Pot</h3>
+        <p>Traditional handmade clay pot for home decor.</p>
+        <div class="price">₹800</div>
+        <button class="cart-btn">Add to Cart</button>
+      </div>
     </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?painting,art" alt="Wall Painting">
+      <div class="card-content">
+        <h3>Wall Painting</h3>
+        <p>Colorful wall art to brighten up your room.</p>
+        <div class="price">₹2,500</div>
+        <button class="cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?handicraft,bag" alt="Handmade Bag">
+      <div class="card-content">
+        <h3>Handmade Bag</h3>
+        <p>Eco-friendly handmade bag with unique design.</p>
+        <div class="price">₹1,000</div>
+        <button class="cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Artisan Marketplace | Inspired by Etsy
   </footer>
 
-  <script src="app.js"></script>
+  <!-- Login/Register Popups -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <input type="text" placeholder="User ID">
+      <input type="password" placeholder="Password">
+      <button>Submit</button>
+    </div>
+  </div>
+
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Register</h2>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="User ID">
+      <input type="password" placeholder="Password">
+      <button>Submit</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
